@@ -6,9 +6,24 @@ Get your Api Key & Secret Key here
 <br />
 https://auth.nubizaserver.my.id/
 
+# How to use NubiAuth (Check on NubiAuth.cpp)
+## Username Only
+|**Parameter**|**Value**|
+|-------------|---------|
+|POST|`https://auth.nubizaserver.my.id/add-new-user.php`|
+|ApiKey|`Your Api key`|
+|username|`username`|
 
+## Full auth (Username & Password)
+Username & Full Auth is different
+|**Parameter**|**Value**|
+|-------------|---------|
+|POST|`https://auth.nubizaserver.my.id/add-new-user.php`|
+|ApiKey|`Your Api key`|
+|username|`username`|
+|password|`password`|
 
-# How add new user
+# How to add new user
 
 ## Username Only
 |**Parameter**|**Value**|
