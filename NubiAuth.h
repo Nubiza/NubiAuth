@@ -64,7 +64,7 @@ public:
                     exit(1);
                 }
 		http::Request request{ "http://auth.nubizaserver.my.id/auth.php" };
-		const string body = "ApiKey=" + ApiKey + "&username=" + username + "&device_id=" + device_id;
+		const string body = "ApiKey=" + ApiKey + "&username=" + username + "&password=" + user_password + "&device_id=" + device_id;
 		const auto response = request.send(
 			"POST",
 			body,
