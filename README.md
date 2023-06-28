@@ -2,7 +2,8 @@
 Nubi Auth is c++ simple authentication made by Nubiza
 
 # Dashboard
-Get your Api Key & Secret Key here ⬇️
+Get your Api Key & Secret Key here
+<br />
 https://auth.nubizaserver.my.id/
 
 
