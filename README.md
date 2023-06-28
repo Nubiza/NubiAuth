@@ -38,7 +38,7 @@ Username & Full Auth is different
 |username|`username`|
 
 ## Full auth (Username & Password)
-Username & Full Auth is different
+Username Only & Full Auth is different
 |**Parameter**|**Value**|
 |-------------|---------|
 |POST|`https://auth.nubizaserver.my.id/add-new-user.php`|
