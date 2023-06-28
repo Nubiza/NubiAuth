@@ -22,8 +22,10 @@ Username & Full Auth is different
 |ApiKey|`Your Api key`|
 |username|`username`|
 |password|`password`|
+
 <br />
 <br />
+
 # How to add new user
 ## Username Only
 |**Parameter**|**Value**|
