@@ -5,4 +5,21 @@ Nubi Auth is c++ simple authentication made by Nubiza
 https://auth.nubizaserver.my.id/
 
 # NubiAuth add new user
-## Username
+
+## Username Only
+|**Parameter**|**Value**|
+|-------------|---------|
+|POST|`https://auth.nubizaserver.my.id/add-new-user.php`|
+|ApiKey|`Your Api key`|
+|Secretkey|`Your Secret key`|
+|username|`username`|
+
+## Full auth (Username & Password)
+Username & Full Auth is different
+|**Parameter**|**Value**|
+|-------------|---------|
+|POST|`https://auth.nubizaserver.my.id/add-new-user.php`|
+|ApiKey|`Your Api key`|
+|Secretkey|`Your Secret key`|
+|username|`username`|
+|password|`password`|
