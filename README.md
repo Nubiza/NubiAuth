@@ -10,7 +10,7 @@ https://auth.nubizaserver.my.id/
 ## Username Only
 |**Parameter**|**Value**|
 |-------------|---------|
-|POST|`https://auth.nubizaserver.my.id/add-new-user.php`|
+|POST|`https://auth.nubizaserver.my.id/auth.php`|
 |ApiKey|`Your Api key`|
 |username|`username`|
 
@@ -18,13 +18,13 @@ https://auth.nubizaserver.my.id/
 Username & Full Auth is different
 |**Parameter**|**Value**|
 |-------------|---------|
-|POST|`https://auth.nubizaserver.my.id/add-new-user.php`|
+|POST|`https://auth.nubizaserver.my.id/auth.php`|
 |ApiKey|`Your Api key`|
 |username|`username`|
 |password|`password`|
-
+<br />
+<br />
 # How to add new user
-
 ## Username Only
 |**Parameter**|**Value**|
 |-------------|---------|
