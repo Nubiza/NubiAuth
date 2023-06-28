@@ -1,7 +1,7 @@
 # NubiAuth
 Nubi Auth is c++ simple authentication made by Nubiza
 <br />
-HTTP / HTTPS Support (Support SSL)
+HTTP or HTTPS Support (Support SSL)
 
 # Dashboard
 Get your Api Key & Secret Key here
