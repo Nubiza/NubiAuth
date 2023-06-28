@@ -11,7 +11,7 @@ https://auth.nubizaserver.my.id/
 |-------------|---------|
 |POST|`https://auth.nubizaserver.my.id/add-new-user.php`|
 |ApiKey|`Your Api key`|
-|Secretkey|`Your Secret key`|
+|SecretKey|`Your Secret key`|
 |username|`username`|
 
 ## Full auth (Username & Password)
@@ -20,6 +20,6 @@ Username & Full Auth is different
 |-------------|---------|
 |POST|`https://auth.nubizaserver.my.id/add-new-user.php`|
 |ApiKey|`Your Api key`|
-|Secretkey|`Your Secret key`|
+|SecretKey|`Your Secret key`|
 |username|`username`|
 |password|`password`|
