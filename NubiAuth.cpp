@@ -12,7 +12,7 @@ int main()
     // -------- NubiAuth Example --------
     NubiAuth auth;
     // api key from https://auth.nubizaserver.my.id/
-    auth.ApiKey = "3930c49b1e7e12e1c8461a5f98c120ba12091xz3ideyelo";
+    auth.ApiKey = "Your Api Key here";
     // set device id
     auth.device_id = get_device_id();
     if (auth.login(user_name)) {
