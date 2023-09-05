@@ -1,6 +1,5 @@
 #pragma once
 #include "HTTPRequest.hpp"
-using namespace std;
 
 // See NubiAuth.cpp for example
 
@@ -8,8 +7,8 @@ class NubiAuth {
   public:
   bool isAuth = false;
 
-  string ApiKey = ""; // your Api Key (to get your Api Key login to auth.nubizaserver.my.id
-  string device_id = ""; // device id (example in NubiAuth.cpp)
+  std::string ApiKey = ""; // your Api Key (to get your Api Key login to auth.nubizaserver.my.id
+  std::string device_id = ""; // device id (example in NubiAuth.cpp)
 
   // login using user name only
   // (Username Only in dashboard)
@@ -21,7 +20,7 @@ class NubiAuth {
     http::Request request {
       "http://auth.nubizaserver.my.id/auth.php"
     };
-    const string body = "ApiKey="+ApiKey+"&username="+username+"&device_id=" + device_id;
+    const std::string body = "ApiKey="+ApiKey+"&username="+username+"&device_id=" + device_id;
     const auto response = request.send(
       "POST",
       body,
@@ -31,7 +30,7 @@ class NubiAuth {
         }
       }
     );
-    string resp = std::string({
+    std::string resp = std::string({
       response.body.begin(), response.body.end()
     });
     if (resp.find("User|Access") != -1) {
@@ -72,7 +71,7 @@ class NubiAuth {
     http::Request request {
       "http://auth.nubizaserver.my.id/auth.php"
     };
-    const string body = "ApiKey=" + ApiKey + "&username=" + username + "&password=" + user_password + "&device_id=" + device_id;
+    const std::string body = "ApiKey=" + ApiKey + "&username=" + username + "&password=" + user_password + "&device_id=" + device_id;
     const auto response = request.send(
       "POST",
       body,
@@ -82,7 +81,7 @@ class NubiAuth {
         }
       }
     );
-    string resp = std::string({
+    std::string resp = std::string({
       response.body.begin(), response.body.end()
     });
     if (resp.find("User|Access") != -1) {
