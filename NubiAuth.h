@@ -1,7 +1,7 @@
 #pragma once
 #include "HTTPRequest.hpp"
 
-// See NubiAuth.cpp for example
+// See Example.cpp for example
 
 class NubiAuth {
   public:
