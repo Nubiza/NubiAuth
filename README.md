@@ -15,6 +15,8 @@ https://auth.nubizaserver.my.id/
 |POST|`https://auth.nubizaserver.my.id/auth.php`|
 |ApiKey|`Your Api key`|
 |username|`username`|
+|device_id|`device_id (if in database empty it will save the device_id)`|
+
 
 ## Full auth (Username & Password)
 Username & Full Auth is different
@@ -24,6 +26,7 @@ Username & Full Auth is different
 |ApiKey|`Your Api key`|
 |username|`username`|
 |password|`password`|
+|device_id|`device_id (if in database empty it will save the device_id)`|
 
 <br />
 <br />
