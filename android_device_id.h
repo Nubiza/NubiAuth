@@ -1,7 +1,6 @@
 #pragma once
 #include <iostream>
 #include <sys/system_properties.h>
-using namespace std;
 
 std::string get_device_id() {
     char device[PROP_VALUE_MAX+1];
@@ -21,6 +20,6 @@ std::string get_device_id() {
     if (manufacturer.find(" ")) {
         manufacturer.substr(0, manufacturer.find(" "));
     }
-    std::string deviceid = string(device)+string(name)+string(brand)+string(board)+string(manufacturer)+string(cpuabi)+string(cpuabi);
+    std::string deviceid = std::string(device)+std::string(name)+std::string(brand)+std::string(board)+std::string(manufacturer)+std::string(cpuabi)+std::string(cpuabi);
     return deviceid;
 }
