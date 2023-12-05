@@ -1,13 +1,14 @@
 #include <iostream>
 #include "NubiAuth.h"
 #include "android_device_id.h"
+#include "obfuscate.h"
 
 int main()
 {
-    printf("NubiAuth Example.\n\n");
+    std::cout << "NubiAuth Example.\n\n";
 
     string user_name = "";
-    printf("Username : "); std::cin >> user_name;
+    std::cout << AY_OBFUSCATE("Username : "); std::cin >> user_name;
 
     // -------- NubiAuth Example --------
     NubiAuth auth;
