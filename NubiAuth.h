@@ -64,7 +64,7 @@ public:
         curl_easy_cleanup(curl);
         return readBuffer;
     }
-    return "Failed";
+    return "Curl Failed";
   }
 
 
