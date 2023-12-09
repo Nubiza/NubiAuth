@@ -5,7 +5,7 @@
 
 class NubiAuth {
 private:
-  std::string ApiKey = ""; // your Api Key (to get your Api Key login to auth.nubizaserver.my.id
+  const char* ApiKey = ""; // your Api Key (to get your Api Key login to auth.nubizaserver.my.id
   const char* Auth_Link = "https://auth.nubizaserver.my.id/auth.php";
 
   bool ProcessRequest(std::string request_response) {
