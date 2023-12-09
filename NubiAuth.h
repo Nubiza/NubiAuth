@@ -55,7 +55,7 @@ public:
     if (curl)
     {
         headers = curl_slist_append(headers, request_headers);
-        curl_easy_setopt(curl, CURLOPT_URL, url());
+        curl_easy_setopt(curl, CURLOPT_URL, url);
         curl_easy_setopt(curl, CURLOPT_POSTFIELDS, post_fields);
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WCallback);
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, &readBuffer);
