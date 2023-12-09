@@ -25,6 +25,11 @@ private:
       isAuth = false;
       return false;
     }
+    else if (resp.find("ApiKey|Limit") != -1) {
+      printf("ApiKey reached limit.\n");
+      isAuth = false;
+      return false;
+    }
     else if (resp.find("ApiKey not found") != -1) {
       printf("%s\n", resp.c_str());
       isAuth = false;
