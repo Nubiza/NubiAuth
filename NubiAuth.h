@@ -12,40 +12,32 @@ private:
     if (resp.find("User|Access") != -1) {
       if (resp.find("device_id saved") != -1)
       printf("Device id saved!\n");
-      isAuth = true;
       return true;
     }
     else if (resp.find("User|Wrong") != -1) {
       printf("Wrong username or password.\n");
-      isAuth = false;
       return false;
     }
     else if (resp.find("User|Denied") != -1) {
       printf("Device id not Authorized.\n");
-      isAuth = false;
       return false;
     }
     else if (resp.find("ApiKey|Limit") != -1) {
       printf("ApiKey reached limit.\n");
-      isAuth = false;
       return false;
     }
     else if (resp.find("ApiKey not found") != -1) {
       printf("%s\n", resp.c_str());
-      isAuth = false;
       return false;
     }
     else {
       printf("Server is offline/error (?)\n");
-      isAuth = false;
       return false;
     }
   }
 public:
   // Public Variables
-  bool isAuth = false;
   std::string device_id = ""; // device id (example in NubiAuth.cpp)
-
   static size_t WCallback(void *contents, size_t size, size_t nmemb, void *userp) //Write Callback
   {
       ((std::string *)userp)->append((char *)contents, size * nmemb);
