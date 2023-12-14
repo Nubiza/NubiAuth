@@ -77,7 +77,7 @@ public:
     }
     const std::string body = "ApiKey="+ApiKey+"&username="+username+"&device_id=" + device_id;
     std::string resp = RequestPost(Auth_Link, "Content-Type: application/x-www-form-urlencoded", body.c_str(), true, true);
-    return ProcessRequest(resp);
+    return this->ProcessRequest(resp);
   }
 
   // login using user name and password
@@ -89,6 +89,6 @@ public:
     }
     const std::string body = "ApiKey=" + ApiKey + "&username=" + username + "&password=" + user_password + "&device_id=" + device_id;
     std::string resp = RequestPost(Auth_Link, "Content-Type: application/x-www-form-urlencoded", body.c_str(), true, true);
-    return ProcessRequest(resp);
+    return this->ProcessRequest(resp);
   }
 };
