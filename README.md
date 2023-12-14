@@ -1,6 +1,7 @@
 # NubiAuth using libcurl to HTTPS Request Post
-Make sure libcurl is instaled in your device
 Nubi Auth is c++ simple authentication made by Nubiza
+<br />
+Make sure libcurl is instaled in your device
 <br />
 HTTPS Only
 
