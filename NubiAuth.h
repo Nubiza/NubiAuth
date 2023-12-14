@@ -75,7 +75,7 @@ public:
       printf("device_id is not set, exiting...");
       exit(1);
     }
-    const std::string body = "ApiKey="+ApiKey+"&username="+username+"&device_id=" + device_id;
+    const std::string body = "ApiKey=" + this->ApiKey + "&username=" + username + "&device_id=" + device_id;
     std::string resp = RequestPost(Auth_Link, "Content-Type: application/x-www-form-urlencoded", body.c_str(), true, true);
     return this->ProcessRequest(resp);
   }
@@ -87,7 +87,7 @@ public:
       printf("device_id is not set, exiting...");
       exit(1);
     }
-    const std::string body = "ApiKey=" + ApiKey + "&username=" + username + "&password=" + user_password + "&device_id=" + device_id;
+    const std::string body = "ApiKey=" + this->ApiKey + "&username=" + username + "&password=" + user_password + "&device_id=" + device_id;
     std::string resp = RequestPost(Auth_Link, "Content-Type: application/x-www-form-urlencoded", body.c_str(), true, true);
     return this->ProcessRequest(resp);
   }
