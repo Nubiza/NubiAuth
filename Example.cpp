@@ -7,7 +7,7 @@ int main()
 {
     std::cout << "NubiAuth Example.\n\n";
 
-    string user_name = "";
+    std::string user_name = "";
     std::cout << AY_OBFUSCATE("Username : "); std::cin >> user_name;
 
     // -------- NubiAuth Example --------
