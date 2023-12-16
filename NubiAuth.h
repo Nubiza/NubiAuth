@@ -8,7 +8,7 @@ private:
   const char* ApiKey = ""; // your Api Key (to get your Api Key login to auth.nubizaserver.my.id
   const char* Auth_Link = "https://auth.nubizaserver.my.id/auth.php";
 
-  bool ProcessRequest(std::string request_response) {
+  bool ProcessRequest(std::string resp) {
     if (resp.find("User|Access") != -1) {
       if (resp.find("device_id saved") != -1)
       printf("Device id saved!\n");
@@ -44,7 +44,7 @@ public:
       return size * nmemb;
   }
 
-  std::string RequestPost(char* url, char* request_headers, char* post_fields, bool verify_host = false, bool verify_peer = false) {
+  std::string RequestPost(const char* url, char* request_headers, char* post_fields, bool verify_host = false, bool verify_peer = false) {
     CURL *curl;
     std::string readBuffer;
     struct curl_slist *headers = NULL;
