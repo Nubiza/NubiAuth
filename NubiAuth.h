@@ -2,10 +2,11 @@
 #include <curl/curl.h> // use libcurl
 // See Example.cpp for example
 
+#define str std::string
 
 class NubiAuth {
 private:
-  const char* ApiKey = ""; // your Api Key (to get your Api Key login to auth.nubizaserver.my.id
+  const char* ApiKey = "Your ApiKey"; // your Api Key (to get your Api Key login to auth.nubizaserver.my.id
   const char* Auth_Link = "https://auth.nubizaserver.my.id/auth.php";
 
   bool ProcessRequest(std::string resp) {
@@ -44,7 +45,7 @@ public:
       return size * nmemb;
   }
 
-  std::string RequestPost(const char* url, char* request_headers, char* post_fields, bool verify_host = false, bool verify_peer = false) {
+  std::string RequestPost(const char* url, const char* request_headers, const char* post_fields, bool verify_host = false, bool verify_peer = false) {
     CURL *curl;
     std::string readBuffer;
     struct curl_slist *headers = NULL;
@@ -75,7 +76,7 @@ public:
       printf("device_id is not set, exiting...");
       exit(1);
     }
-    const std::string body = "ApiKey=" + this->ApiKey + "&username=" + username + "&device_id=" + device_id;
+    const std::string body = (str)"ApiKey=" + (str)this->ApiKey + (str)"&username=" + username + (str)"&device_id=" + device_id;
     std::string resp = RequestPost(Auth_Link, "Content-Type: application/x-www-form-urlencoded", body.c_str(), true, true);
     return this->ProcessRequest(resp);
   }
@@ -87,7 +88,7 @@ public:
       printf("device_id is not set, exiting...");
       exit(1);
     }
-    const std::string body = "ApiKey=" + this->ApiKey + "&username=" + username + "&password=" + user_password + "&device_id=" + device_id;
+    const std::string body = (str)"ApiKey=" + (str)this->ApiKey + (str)"&username=" + username + (str)"&password=" + user_password + (str)"&device_id=" + device_id;
     std::string resp = RequestPost(Auth_Link, "Content-Type: application/x-www-form-urlencoded", body.c_str(), true, true);
     return this->ProcessRequest(resp);
   }
