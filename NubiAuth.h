@@ -2,7 +2,7 @@
 #include <curl/curl.h> // use libcurl
 // See Example.cpp for example
 
-#define str std::string
+#define strg std::string
 
 class NubiAuth {
 private:
@@ -76,7 +76,7 @@ public:
       printf("device_id is not set, exiting...");
       exit(1);
     }
-    const std::string body = (str)"ApiKey=" + (str)this->ApiKey + (str)"&username=" + username + (str)"&device_id=" + device_id;
+    const std::string body = (strg)"ApiKey=" + (strg)this->ApiKey + (strg)"&username=" + username + (strg)"&device_id=" + device_id;
     std::string resp = RequestPost(Auth_Link, "Content-Type: application/x-www-form-urlencoded", body.c_str(), true, true);
     return this->ProcessRequest(resp);
   }
@@ -88,7 +88,7 @@ public:
       printf("device_id is not set, exiting...");
       exit(1);
     }
-    const std::string body = (str)"ApiKey=" + (str)this->ApiKey + (str)"&username=" + username + (str)"&password=" + user_password + (str)"&device_id=" + device_id;
+    const std::string body = (strg)"ApiKey=" + (strg)this->ApiKey + (strg)"&username=" + username + (strg)"&password=" + user_password + (strg)"&device_id=" + device_id;
     std::string resp = RequestPost(Auth_Link, "Content-Type: application/x-www-form-urlencoded", body.c_str(), true, true);
     return this->ProcessRequest(resp);
   }
