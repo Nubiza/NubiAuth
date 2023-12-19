@@ -7,7 +7,7 @@
 class NubiAuth {
 private:
   const char* ApiKey = "Your ApiKey"; // your Api Key (to get your Api Key login to auth.nubizaserver.my.id
-  const char* Auth_Link = "https://auth.nubizaserver.my.id/auth.php";
+  const char* Auth_Link = "https://auth.nubiza.my.id/auth.php";
 
   bool ProcessRequest(std::string resp) {
     if (resp.find("User|Access") != -1) {
