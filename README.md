@@ -8,13 +8,13 @@ HTTPS Only
 # Dashboard
 Get your Api Key & Secret Key here
 <br />
-https://auth.nubizaserver.my.id/
+https://auth.nubiza.my.id/
 
 # How to use NubiAuth (Check on NubiAuth.cpp)
 ## Username Only
 |**Parameter**|**Value**|
 |-------------|---------|
-|POST|`https://auth.nubizaserver.my.id/auth.php`|
+|POST|`https://auth.nubiza.my.id/auth.php`|
 |ApiKey|`Your Api key`|
 |username|`username`|
 |device_id|`device_id (if in database empty it will save the device_id)`|
@@ -24,7 +24,7 @@ https://auth.nubizaserver.my.id/
 Username & Full Auth is different
 |**Parameter**|**Value**|
 |-------------|---------|
-|POST|`https://auth.nubizaserver.my.id/auth.php`|
+|POST|`https://auth.nubiza.my.id/auth.php`|
 |ApiKey|`Your Api key`|
 |username|`username`|
 |password|`password`|
@@ -37,7 +37,7 @@ Username & Full Auth is different
 ## Username Only
 |**Parameter**|**Value**|
 |-------------|---------|
-|POST|`https://auth.nubizaserver.my.id/add-new-user.php`|
+|POST|`https://auth.nubiza.my.id/add-new-user.php`|
 |ApiKey|`Your Api key`|
 |SecretKey|`Your Secret key`|
 |username|`username`|
@@ -46,7 +46,7 @@ Username & Full Auth is different
 Username Only & Full Auth is different
 |**Parameter**|**Value**|
 |-------------|---------|
-|POST|`https://auth.nubizaserver.my.id/add-new-user.php`|
+|POST|`https://auth.nubiza.my.id/add-new-user.php`|
 |ApiKey|`Your Api key`|
 |SecretKey|`Your Secret key`|
 |username|`username`|
