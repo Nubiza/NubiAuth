@@ -1,5 +1,6 @@
 #pragma once
 #include <curl/curl.h> // use libcurl
+#include "obfuscate.h"
 // See Example.cpp for example
 
 #define strg std::string
@@ -50,6 +51,7 @@ public:
     std::string readBuffer;
     struct curl_slist *headers = NULL;
     curl = curl_easy_init();
+    CURLcode res;
     if (curl)
     {
         headers = curl_slist_append(headers, request_headers);
@@ -61,7 +63,17 @@ public:
         curl_easy_setopt(curl, CURLOPT_TIMEOUT_MS, 5000);
         curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, verify_host);
         curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, verify_peer);
-        curl_easy_perform(curl);
+        res = curl_easy_perform(curl);
+        if (res == CURLE_OK) {
+          if (url == "https://auth.nubiza.my.id/auth.php") {
+            char* remote_address;
+            res = curl_easy_getinfo(curl, CURLINFO_PRIMARY_IP, &remote_address);
+            if (remote_address != AY_OBFUSCATE("103.134.152.6"))
+              readBuffer = "";
+          }
+        } else {
+          printf("Failed to connect the server.\n");
+        }
         curl_easy_cleanup(curl);
         return readBuffer;
     }
