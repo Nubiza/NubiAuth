@@ -4,36 +4,37 @@
 // See Example.cpp for example
 
 #define strg std::string
+#define OBF(string) AY_OBFUSCATE(string)
 
 class NubiAuth {
 private:
-  const char* ApiKey = "Your ApiKey"; // your Api Key (to get your Api Key login to auth.nubizaserver.my.id
-  const char* Auth_Link = "https://auth.nubiza.my.id/auth.php";
+  const char* ApiKey = OBF("Your ApiKey"); // your Api Key (to get your Api Key login to auth.nubizaserver.my.id
+  const char* Auth_Link = OBF("https://auth.nubiza.my.id/auth.php");
 
   bool ProcessRequest(std::string resp) {
-    if (resp.find("User|Access") != -1) {
-      if (resp.find("device_id saved") != -1)
-      printf("Device id saved!\n");
+    if (resp.find(OBF("User|Access")) != -1) {
+      if (resp.find(OBF("device_id saved")) != -1)
+      printf(OBF("Device id saved!\n"));
       return true;
     }
-    else if (resp.find("User|Wrong") != -1) {
-      printf("Wrong username or password.\n");
+    else if (resp.find(OBF("User|Wrong")) != -1) {
+      printf(OBF("Wrong username or password.\n"));
       return false;
     }
-    else if (resp.find("User|Denied") != -1) {
-      printf("Device id not Authorized.\n");
+    else if (resp.find(OBF("User|Denied")) != -1) {
+      printf(OBF("Device id not Authorized.\n"));
       return false;
     }
-    else if (resp.find("ApiKey|Limit") != -1) {
-      printf("ApiKey reached limit.\n");
+    else if (resp.find(OBF("ApiKey|Limit")) != -1) {
+      printf(OBF("ApiKey reached limit.\n"));
       return false;
     }
-    else if (resp.find("ApiKey not found") != -1) {
-      printf("%s\n", resp.c_str());
+    else if (resp.find(OBF("ApiKey not found")) != -1) {
+      printf(OBF("%s\n"), resp.c_str());
       return false;
     }
     else {
-      printf("Server is offline/error (?)\n");
+      printf(OBF("Server is offline/error (?)\n"));
       return false;
     }
   }
@@ -63,17 +64,21 @@ public:
         curl_easy_setopt(curl, CURLOPT_TIMEOUT_MS, 5000);
         curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, verify_host);
         curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, verify_peer);
+        curl_easy_setopt(curl, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
         res = curl_easy_perform(curl);
         if (res == CURLE_OK) {
-          if (url == "https://auth.nubiza.my.id/auth.php") {
+          if (strg(url) == OBF("https://auth.nubiza.my.id/auth.php")) {
             char* remote_address;
             res = curl_easy_getinfo(curl, CURLINFO_PRIMARY_IP, &remote_address);
-            if (remote_address != AY_OBFUSCATE("103.134.152.6"))
+            strg auth_address(OBF("103.134.152.6"));
+            if (strg(remote_address) != auth_address) {
               readBuffer = "";
+              printf(OBF("Invalid server: %s\n"), remote_address);
+            }
           }
         } else {
-          printf("Failed to connect the server.\n");
-        }
+          printf(OBF("Failed to connect the server.\n"));
+        }
         curl_easy_cleanup(curl);
         return readBuffer;
     }
@@ -85,7 +90,7 @@ public:
   // (Username Only in dashboard)
   bool login(std::string username) {
     if (device_id.empty() || device_id == "") {
-      printf("device_id is not set, exiting...");
+      printf(OBF("device_id is not set, exiting..."));
       exit(1);
     }
     const std::string body = (strg)"ApiKey=" + (strg)this->ApiKey + (strg)"&username=" + username + (strg)"&device_id=" + device_id;
@@ -97,7 +102,7 @@ public:
   // (different database, Username & Password in dashboard)
   bool login(std::string username, std::string user_password) {
     if (device_id.empty() || device_id == "") {
-      printf("device_id is not set, exiting...");
+      printf(OBF("device_id is not set, exiting..."));
       exit(1);
     }
     const std::string body = (strg)"ApiKey=" + (strg)this->ApiKey + (strg)"&username=" + username + (strg)"&password=" + user_password + (strg)"&device_id=" + device_id;
