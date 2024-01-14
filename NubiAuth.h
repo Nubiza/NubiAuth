@@ -14,27 +14,27 @@ private:
   bool ProcessRequest(std::string resp) {
     if (resp.find(OBF("User|Access")) != -1) {
       if (resp.find(OBF("device_id saved")) != -1)
-      printf(OBF("Device id saved!\n"));
+      printf("Device id saved!\n");
       return true;
     }
     else if (resp.find(OBF("User|Wrong")) != -1) {
-      printf(OBF("Wrong username or password.\n"));
+      printf("Wrong username or password.\n");
       return false;
     }
     else if (resp.find(OBF("User|Denied")) != -1) {
-      printf(OBF("Device id not Authorized.\n"));
+      printf("Device id not Authorized.\n");
       return false;
     }
     else if (resp.find(OBF("ApiKey|Limit")) != -1) {
-      printf(OBF("ApiKey reached limit.\n"));
+      printf("ApiKey reached limit.\n");
       return false;
     }
     else if (resp.find(OBF("ApiKey not found")) != -1) {
-      printf(OBF("%s\n"), resp.c_str());
+      printf("%s\n"), resp.c_str());
       return false;
     }
     else {
-      printf(OBF("Server is offline/error (?)\n"));
+      printf("Server is offline/error (?)\n");
       return false;
     }
   }
@@ -67,17 +67,17 @@ public:
         curl_easy_setopt(curl, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
         res = curl_easy_perform(curl);
         if (res == CURLE_OK) {
-          if (strg(url) == OBF("https://auth.nubiza.my.id/auth.php")) {
+          if (strg(url) == strg(Auth_Link)) {
             char* remote_address;
             res = curl_easy_getinfo(curl, CURLINFO_PRIMARY_IP, &remote_address);
             strg auth_address(OBF("103.134.152.6"));
             if (strg(remote_address) != auth_address) {
               readBuffer = "";
-              printf(OBF("Invalid server: %s\n"), remote_address);
+              printf("Invalid server: %s\n"), remote_address);
             }
           }
         } else {
-          printf(OBF("Failed to connect the server.\n"));
+          printf("Failed to connect the server.\n");
         }
         curl_easy_cleanup(curl);
         return readBuffer;
@@ -90,7 +90,7 @@ public:
   // (Username Only in dashboard)
   bool login(std::string username) {
     if (device_id.empty() || device_id == "") {
-      printf(OBF("device_id is not set, exiting..."));
+      printf("device_id is not set, exiting...");
       exit(1);
     }
     const std::string body = (strg)"ApiKey=" + (strg)this->ApiKey + (strg)"&username=" + username + (strg)"&device_id=" + device_id;
@@ -102,7 +102,7 @@ public:
   // (different database, Username & Password in dashboard)
   bool login(std::string username, std::string user_password) {
     if (device_id.empty() || device_id == "") {
-      printf(OBF("device_id is not set, exiting..."));
+      printf("device_id is not set, exiting...");
       exit(1);
     }
     const std::string body = (strg)"ApiKey=" + (strg)this->ApiKey + (strg)"&username=" + username + (strg)"&password=" + user_password + (strg)"&device_id=" + device_id;
