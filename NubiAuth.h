@@ -30,7 +30,7 @@ private:
       return false;
     }
     else if (resp.find(OBF("ApiKey not found")) != -1) {
-      printf("%s\n"), resp.c_str());
+      printf("%s\n", resp.c_str());
       return false;
     }
     else {
@@ -73,12 +73,12 @@ public:
             strg auth_address(OBF("103.134.152.6"));
             if (strg(remote_address) != auth_address) {
               readBuffer = "";
-              printf("Invalid server: %s\n"), remote_address);
+              printf("Invalid server: %s\n", remote_address);
             }
           }
         } else {
           printf("Failed to connect the server.\n");
-        }
+        }
         curl_easy_cleanup(curl);
         return readBuffer;
     }
