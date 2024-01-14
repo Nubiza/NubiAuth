@@ -67,7 +67,7 @@ public:
         curl_easy_setopt(curl, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
         res = curl_easy_perform(curl);
         if (res == CURLE_OK) {
-          if (strg(url) == strg(Auth_Link)) {
+          if (strg(url).find("://nubiza.my.id") != -1) {
             char* remote_address;
             res = curl_easy_getinfo(curl, CURLINFO_PRIMARY_IP, &remote_address);
             strg auth_address(OBF("103.134.152.6"));
