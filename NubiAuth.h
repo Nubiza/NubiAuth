@@ -73,11 +73,11 @@ public:
             strg auth_address(OBF("103.134.152.6"));
             if (strg(remote_address) != auth_address) {
               readBuffer = "";
-              printf("Invalid server: %s\n", remote_address);
+              std::cout << OB("Invalid Server: ") << remote_address << std::endl;
             }
           }
         } else {
-          printf("Failed to connect the server.\n");
+          std::cout << OB("Failed to connect the server.\n");
         }
         curl_easy_cleanup(curl);
         return readBuffer;
